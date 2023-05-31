@@ -68,23 +68,4 @@ public class BookController {
         bookService.deleteBook(id);
         return "redirect:/books";
     }
-    @GetMapping("/category")
-    public String showAllCats(Model model){
-        List<Category> cats = categoryService.getAllCategories();
-        model.addAttribute("cats", cats);
-        return "category/list";
-    }
-    @GetMapping("/addCategory")
-    public String addCategoryForm(Model model){
-        model.addAttribute("cat", new Category());
-        return "category/add";
-    }
-    @PostMapping("/addCategory")
-    public String addCat(@Valid @ModelAttribute("cat") Category category, BindingResult bindingResult,Model model) {
-        if(bindingResult.hasErrors()){
-            return "category/add";
-        }
-        categoryService.addCat(category);
-        return "redirect:/books/category";
-    }
 }
