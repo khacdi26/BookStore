@@ -49,7 +49,7 @@ public class CategoryController {
         if(bindingResult.hasErrors()){
             return "redirect:/categories/update/"+id;
         }
-        categoryService.saveCategory(cateUpdate);
+        categoryService.updateCat(cateUpdate);
         return "redirect:/categories";
     }
     @GetMapping("/delete/{id}")
