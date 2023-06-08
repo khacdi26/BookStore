@@ -15,6 +15,6 @@ public class ValidUsernameValidator implements ConstraintValidator<ValidUsername
         if (userRepository == null){
             return true;
         }
-        return userRepository.findByUsername(username)!=null;
+        return userRepository.findByUsername(username)==null;
     }
 }
